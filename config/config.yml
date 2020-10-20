@@ -1,0 +1,24 @@
+server:
+  applicationConnectors:
+  - type: http
+    port: 8080
+  adminConnectors:
+  - type: http
+    port: 8081
+
+info: "Hello base-dropwizard example!"
+
+logging:
+  level: INFO
+  loggers:
+    "nl.rogitex.base.dropwizard":
+      level: DEBUG
+      additive: false
+      appenders:
+        - type: file
+          currentLogFilename: ./logs/base-dropwizard.log
+          archivedLogFilenamePattern: ./logs/base-dropwizard-%d.log.gz
+          archivedFileCount: 5
+          timeZone: UTC
+        - type: console
+          target: stderr
